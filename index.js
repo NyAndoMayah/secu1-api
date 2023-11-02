@@ -13,6 +13,7 @@ const firebaseConfig = {
     appId: "1:62538946032:web:ef222d48fcab179eb6b935"
 };
 
+
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
 const express = require('express')
@@ -35,6 +36,6 @@ app.post('/login', async (req, res) => {
     }
 });
 
-app.listen(port, () => {
+app.listen(port,'0.0.0.0', () => {
     console.log(`Example app listening on port ${port}`)
 })
