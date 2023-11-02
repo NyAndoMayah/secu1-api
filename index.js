@@ -18,7 +18,8 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const express = require('express')
 const app = express()
-const port = 5000
+const port = process.env.PORT || 3000;
+
 const db = getFirestore(firebaseApp);
 
 app.use(express.json());
