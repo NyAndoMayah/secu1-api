@@ -26,6 +26,13 @@ app.use(express.json());
 
 const usersCollection = collection(db, 'users'); // 'users' is the name of the collection
 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Methods","POST")
+    next();
+});
+
 app.post('/login', async (req, res) => {
     try {
         const docRef = await addDoc(usersCollection, req.body);
